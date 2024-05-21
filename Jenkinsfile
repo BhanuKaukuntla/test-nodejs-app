@@ -32,8 +32,7 @@ pipeline {
          // steps { 
          //   sh 'echo "deploying application..."'
          // }
-
-     }
+         // }
   
    	}
 
