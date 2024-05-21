@@ -2,6 +2,10 @@ pipeline {
   
    agent any
 
+   environment{
+      DOCKERHUB_CREDENTIALS = credentials('ubuntu')
+   }
+
    stages {
    
      stage('Install Dependencies') { 
