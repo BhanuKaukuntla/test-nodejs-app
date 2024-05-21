@@ -16,10 +16,22 @@ pipeline {
         }
       }
 
-         stage("Deploy npm cloud application") { 
-         steps { 
-           sh 'echo "deploying application..."'
-         }
+     stage("Build"){
+            steps{
+                sh 'npm run build'
+            }
+        }
+
+      stage("Build Image"){
+            steps{
+                sh 'docker build -t my-node-app:1.0 .'
+            }
+        }
+
+         // stage("Deploy npm cloud application") { 
+         // steps { 
+         //   sh 'echo "deploying application..."'
+         // }
 
      }
   
