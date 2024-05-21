@@ -2,9 +2,9 @@ pipeline {
   
    agent any
 
-   environment{
-      DOCKERHUB_CREDENTIALS = credentials('ubuntu')
-   }
+   // environment{
+   //    DOCKERHUB_CREDENTIALS = credentials('ubuntu')
+   // }
 
    stages {
    
