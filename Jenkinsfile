@@ -32,16 +32,16 @@ pipeline {
             }
         }
 
-     // stage('Docker Push') {
-     //        steps {
-     //            withCredentials([usernamePassword(credentialsId: 'docker_cred', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
-     //                sh 'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
-     //                sh 'docker tag node:1.0 bhanu7/node:1.0'
-     //                sh 'docker push bhanu7/node:1.0'
-     //                sh 'docker logout'
-     //            }
-     //        }
-     //    }
+     stage('Docker Push') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'docker_cred', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+                    sh 'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
+                    sh 'docker tag node:1.0 bhanu7/node:1.0'
+                    sh 'docker push bhanu7/node:1.0'
+                    sh 'docker logout'
+                }
+            }
+        }
 
          // stage("Deploy npm cloud application") { 
          // steps { 
