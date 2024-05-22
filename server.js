@@ -4,7 +4,7 @@
 const express = require('express');
 
 // Constants
-const PORT = 8000;
+const PORT = 7000;
 const HOST = '0.0.0.0';
 
 // App
