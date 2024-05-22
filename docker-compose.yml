@@ -1,7 +1,6 @@
-version: "3"
+version: '3'
 services:
-  node-app:
-    build: .
-    image: sloppynetworks/node-app
-    environment:
-      - PORT=8000
+  web:
+    image: bhanu7/node:1.0
+    ports:
+      - "8000:8000"
