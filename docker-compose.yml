@@ -3,4 +3,4 @@ services:
   web:
     image: bhanu7/node:1.0
     ports:
-      - "8000:8000"
+      - "7000:8000"
