@@ -38,25 +38,31 @@ pipeline {
                     sh 'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
                     sh 'docker tag node:1.0 bhanu7/node:1.0'
                     sh 'docker push bhanu7/node:1.0'
-                    sh 'docker logout'
+                    // sh 'docker logout'
                 }
             }
         }
 
-    stage('Deploy with Docker Compose') {
-            steps {
-                script {
-                    // Ensure Docker Compose file is present
-                    sh 'cat docker-compose.yml'
-
-                    // Stop and remove any existing containers
-                    sh 'docker-compose down'
-
-                    // Start new containers
-                    sh 'docker-compose up -d'
-                }
+      stage('Deploy to container'){
+            steps{
+                sh 'docker run -d --name node -p 8007:8000 bhanu7/node:1.0'
             }
         }
+
+    // stage('Deploy with Docker Compose') {
+    //         steps {
+    //             script {
+    //                 // Ensure Docker Compose file is present
+    //                 sh 'cat docker-compose.yml'
+
+    //                 // Stop and remove any existing containers
+    //                 sh 'docker-compose down'
+
+    //                 // Start new containers
+    //                 sh 'docker-compose up -d'
+    //             }
+    //         }
+    //     }
 
          // stage("Deploy npm cloud application") { 
          // steps { 
